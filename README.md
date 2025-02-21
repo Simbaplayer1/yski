@@ -19,3 +19,6 @@ Want to have a relaxing game of simple YSKI or looking for a rush?
 |Orange|<img src="https://github.com/Simbaplayer1/yski/blob/master/art/ui/color_pick_buttons/color_pick_button_16.png?raw=true">|
 |Cyan|<img src="https://github.com/Simbaplayer1/yski/blob/master/art/ui/color_pick_buttons/color_pick_button_19.png?raw=true">|
 |Purple|<img src="https://github.com/Simbaplayer1/yski/blob/master/art/ui/color_pick_buttons/color_pick_button_22.png?raw=true">|
+
+Here are all cards:
+<img src="https://github.com/Simbaplayer1/yski/blob/master/art/card-sheet.png?raw=true">

@@ -1,0 +1,273 @@
+[gd_scene load_steps=20 format=3 uid="uid://djfkhmiv7sfk6"]
+
+[ext_resource type="Script" uid="uid://btxig0ujayrky" path="res://components/new_game/new_game_card.gd" id="1_1pi1e"]
+[ext_resource type="PackedScene" uid="uid://cht5yj3eudysq" path="res://components/background.tscn" id="1_hnaid"]
+[ext_resource type="Theme" uid="uid://big1xepiyu6r4" path="res://themes/green.tres" id="2_7uwkc"]
+[ext_resource type="ButtonGroup" uid="uid://bsw7p1f5iwone" path="res://components/new_game/difficulty_button_group.tres" id="3_3706l"]
+[ext_resource type="Theme" uid="uid://dl25uyibjceuu" path="res://themes/yellow.tres" id="3_kffg8"]
+[ext_resource type="Theme" uid="uid://dvuhetf2ik7ji" path="res://themes/red.tres" id="4_3706l"]
+[ext_resource type="Theme" uid="uid://sbrc071x8j7b" path="res://themes/purple.tres" id="5_ifx5n"]
+[ext_resource type="Theme" uid="uid://ctv3la2s3ksbc" path="res://themes/blue.tres" id="6_bujeb"]
+[ext_resource type="Texture2D" uid="uid://w1w1hh4aecte" path="res://art/ui/icons/hearts/heart_1.png" id="7_2ylfm"]
+[ext_resource type="Texture2D" uid="uid://cc77qi1xwvnhs" path="res://art/ui/panels/panel_1.png" id="8_kdfks"]
+[ext_resource type="Texture2D" uid="uid://cd4mvfdpd55iu" path="res://art/ui/icons/hearts/heart_2.png" id="8_kgr8f"]
+[ext_resource type="Texture2D" uid="uid://bugfqc5rfto3u" path="res://art/ui/icons/ai.png" id="8_vf8nv"]
+[ext_resource type="Texture2D" uid="uid://bj1bb7uthjjsn" path="res://art/ui/icons/hearts/heart_3.png" id="9_1pi1e"]
+[ext_resource type="Texture2D" uid="uid://bxqadcala7bdp" path="res://art/ui/icons/ai_level/ai_level_1.png" id="9_2ylfm"]
+[ext_resource type="Texture2D" uid="uid://clhq67wjgodkb" path="res://art/ui/icons/ai_level/ai_level_2.png" id="10_kgr8f"]
+[ext_resource type="Texture2D" uid="uid://crm0xuoaikqdy" path="res://art/ui/icons/ai_level/ai_level_3.png" id="11_1pi1e"]
+[ext_resource type="Texture2D" uid="uid://bv34mnrdaiiit" path="res://art/ui/icons/ai_level/ai_level_4.png" id="12_kdfks"]
+[ext_resource type="Material" uid="uid://bryqx6imoyfue" path="res://materials/crt/crt.tres" id="17_1pi1e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qdb1t"]
+texture = ExtResource("8_kdfks")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[node name="NewGameCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1pi1e")
+
+[node name="Background" parent="." instance=ExtResource("1_hnaid")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+text = "[b]New game"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Difficulty"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="EasyButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_7uwkc")
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+button_group = ExtResource("3_3706l")
+text = "Easy"
+
+[node name="MediumButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_kffg8")
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_3706l")
+text = "Medium"
+
+[node name="HardButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_3706l")
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+button_group = ExtResource("3_3706l")
+text = "Hard"
+
+[node name="HardcoreButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("5_ifx5n")
+theme_override_font_sizes/font_size = 8
+toggle_mode = true
+button_group = ExtResource("3_3706l")
+text = "Hardcore"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_qdb1t")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("7_2ylfm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Heart2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("8_kgr8f")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Heart3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+texture = ExtResource("9_1pi1e")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HeartText" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3 Lives"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(12, 12)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("8_vf8nv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+alignment = 1
+
+[node name="AiLevel1" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_2ylfm")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AiLevel2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_kgr8f")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AiLevel3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("11_1pi1e")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AiLevel4" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_kdfks")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AiText" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Easy AI"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="StartingMoneyText" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Starting money: 4$"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_bujeb")
+text = "Start!"
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="."]
+
+[node name="CrtEffect" type="ColorRect" parent="PostProcessLayer"]
+material = ExtResource("17_1pi1e")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/EasyButton" to="." method="_on_easy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MediumButton" to="." method="_on_medium_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HardcoreButton" to="." method="_on_hardcore_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

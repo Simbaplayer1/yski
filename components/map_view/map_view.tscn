@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://i16cxeln6alb"]
+
+[ext_resource type="Texture2D" uid="uid://cfeembly7tudu" path="res://art/ui/icons/round_map_icons/map_state/map_state_1.png" id="1_4pa10"]
+[ext_resource type="Script" uid="uid://dxryesyhr3pp2" path="res://components/map_view/map_view.gd" id="2_hhll7"]
+
+[node name="MapView" type="TextureRect"]
+offset_right = 215.0
+offset_bottom = 74.0
+texture = ExtResource("1_4pa10")
+expand_mode = 3
+stretch_mode = 5
+script = ExtResource("2_hhll7")

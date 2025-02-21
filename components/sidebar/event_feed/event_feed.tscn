@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://blsccptvk0yry"]
+
+[ext_resource type="Script" uid="uid://dwel4jfkps27j" path="res://components/sidebar/event_feed/event_feed.gd" id="1_gem7w"]
+[ext_resource type="PackedScene" uid="uid://ckrxy6x2lidtl" path="res://components/sidebar/event_feed/event_feed_item.tscn" id="1_h8sqg"]
+
+[node name="EventFeed" type="PanelContainer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 79.0
+offset_right = 61.0
+grow_vertical = 2
+script = ExtResource("1_gem7w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+follow_focus = true
+scroll_vertical = 12
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 2
+
+[node name="EventContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="EventFeedItem" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem2" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem3" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem4" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem5" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem6" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem7" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem8" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem9" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem10" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem11" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem12" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2
+
+[node name="EventFeedItem13" parent="MarginContainer/ScrollContainer/MarginContainer/EventContainer" instance=ExtResource("1_h8sqg")]
+layout_mode = 2

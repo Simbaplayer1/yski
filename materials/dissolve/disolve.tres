@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bd0o2wl5tgk26"]
+
+[ext_resource type="Shader" uid="uid://wc1nuyl7s7ti" path="res://materials/dissolve/dissolve.gdshader" id="1_d0wnq"]
+
+[resource]
+shader = ExtResource("1_d0wnq")
+shader_parameter/time = 1.0
+shader_parameter/resolution_scale = 0.5

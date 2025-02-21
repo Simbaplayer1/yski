@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqv6yfe0afymi"]
+
+[ext_resource type="Script" uid="uid://bmgt5owpj0ubs" path="res://components/deck_view_modal/deck_view_modal.gd" id="1_e0n77"]
+[ext_resource type="Theme" uid="uid://dvuhetf2ik7ji" path="res://themes/red.tres" id="1_ej4fi"]
+[ext_resource type="PackedScene" uid="uid://b08rtywbsbu8o" path="res://components/card/card.tscn" id="1_k108b"]
+[ext_resource type="StyleBox" uid="uid://cclqjk1166uql" path="res://themes/panels/black_panel.tres" id="2_bcfwa"]
+
+[node name="DeckViewModal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e0n77")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_bcfwa")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="RedCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/RedCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="YellowCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/YellowCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="GreenCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/GreenCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="BlueCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/BlueCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="RoseCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/RoseCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="OrangeCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/OrangeCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="CyanCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/CyanCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="PurpleCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/PurpleCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="BlackCardContainer" type="Panel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 2
+
+[node name="Card" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/BlackCardContainer" instance=ExtResource("1_k108b")]
+layout_mode = 0
+offset_right = 22.0
+offset_bottom = 35.0
+scale = Vector2(0.5, 0.5)
+
+[node name="CloseButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("1_ej4fi")
+theme_override_font_sizes/font_size = 6
+text = "Close"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer2/CloseButton" to="." method="_on_close_button_pressed"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckrxy6x2lidtl"]
+
+[ext_resource type="Script" uid="uid://bgy4q6gpdyltw" path="res://components/sidebar/event_feed/event_feed_item.gd" id="1_xj55x"]
+[ext_resource type="Texture2D" uid="uid://di6p3algn2phw" path="res://art/ui/player_avatars/player_avatar_1.png" id="2_eqk4p"]
+[ext_resource type="PackedScene" uid="uid://dwmv43lmq7q26" path="res://components/sidebar/event_feed/event_feed_item_card.tscn" id="3_1v2ey"]
+
+[node name="EventFeedItem" type="GridContainer"]
+offset_right = 47.0
+offset_bottom = 11.0
+columns = 3
+script = ExtResource("1_xj55x")
+
+[node name="PlayerAvatarTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+texture = ExtResource("2_eqk4p")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ActionLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 5
+text = "Played"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="CardCountLabel" type="RichTextLabel" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 5
+text = "2x"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="CardContainer" type="HBoxContainer" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="EventFeedItemCard" parent="HBoxContainer/CardContainer" instance=ExtResource("3_1v2ey")]
+layout_mode = 2
+
+[node name="EventFeedItemCard2" parent="HBoxContainer/CardContainer" instance=ExtResource("3_1v2ey")]
+layout_mode = 2

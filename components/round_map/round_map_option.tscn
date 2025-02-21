@@ -1,0 +1,368 @@
+[gd_scene load_steps=16 format=3 uid="uid://b5a621xh8x0lf"]
+
+[ext_resource type="Theme" uid="uid://big1xepiyu6r4" path="res://themes/green.tres" id="1_qbj44"]
+[ext_resource type="Script" uid="uid://cvdp1mg6jrsbi" path="res://components/round_map/round_map_option.gd" id="1_ujtkw"]
+[ext_resource type="FontFile" uid="uid://bod7p1tgb4nl8" path="res://art/fonts/PixeloidSans-Bold.ttf" id="2_0qbwb"]
+[ext_resource type="Texture2D" uid="uid://bxyioj5fyuc5h" path="res://art/ui/icons/round_map_icons/color_count/color_count_8.png" id="2_5iaji"]
+[ext_resource type="Texture2D" uid="uid://d02sbpxcghanu" path="res://art/ui/icons/round_map_icons/deck.png" id="4_ejn2t"]
+[ext_resource type="Texture2D" uid="uid://dvg72ljxqps1e" path="res://art/ui/icons/round_map_icons/stacking.png" id="4_km1s1"]
+[ext_resource type="Texture2D" uid="uid://c568vi13r6vrm" path="res://art/ui/icons/round_map_icons/enemy_count.png" id="4_ks52o"]
+[ext_resource type="Texture2D" uid="uid://db3wqkq6vd00s" path="res://art/ui/icons/round_map_icons/money.png" id="6_lqf5q"]
+[ext_resource type="StyleBox" uid="uid://cclqjk1166uql" path="res://themes/panels/black_panel.tres" id="9_km1s1"]
+[ext_resource type="Texture2D" uid="uid://bvm28i358wivv" path="res://art/ui/icons/round_map_icons/card_icons/card_icon_1.png" id="10_sw0hx"]
+[ext_resource type="Texture2D" uid="uid://el5j85wqfh7p" path="res://art/ui/icons/round_map_icons/card_icons/card_icon_2.png" id="11_ks52o"]
+[ext_resource type="Texture2D" uid="uid://xcycb62vqngs" path="res://art/ui/icons/round_map_icons/card_icons/card_icon_3.png" id="12_x7pur"]
+[ext_resource type="Texture2D" uid="uid://1t1e6dbnknhf" path="res://art/ui/icons/round_map_icons/card_icons/card_icon_4.png" id="13_63s4p"]
+[ext_resource type="Texture2D" uid="uid://bw4uscvdpqn2s" path="res://art/ui/icons/round_map_icons/card_icons/card_icon_5.png" id="14_uk5lf"]
+[ext_resource type="Texture2D" uid="uid://w6dqj6fbqe8w" path="res://art/ui/icons/round_map_icons/card_icons/card_icon_6.png" id="15_ks52o"]
+
+[node name="RoundMapOption" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -37.0
+offset_right = 20.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ujtkw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="DifficultyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 6
+bbcode_enabled = true
+text = "[b]Easy"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="EnemyCountLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1 Enemy"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ColorCountLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "4 Colors"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="StackingLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Stacking Allowed"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MoneyLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "$4"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+text = "2x"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="MoneyTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("6_lqf5q")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="EnemyCountTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_ks52o")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ColorCountTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_5iaji")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeckTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(4, 12)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_ejn2t")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="StackingTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_km1s1")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ChooseButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("1_qbj44")
+theme_override_font_sizes/font_size = 5
+text = "Choose"
+
+[node name="DeckPreview" type="Control" parent="."]
+unique_name_in_owner = true
+z_index = 4096
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="DeckPreview"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -37.0
+offset_right = 73.0
+offset_bottom = 46.0
+theme_override_styles/panel = ExtResource("9_km1s1")
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="StackingTexture" type="TextureRect" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("10_sw0hx")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="NumberedCountLabel" type="RichTextLabel" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+theme_override_font_sizes/normal_font_size = 4
+text = "25"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="StackingTexture" type="TextureRect" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("11_ks52o")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ZeroCountLabel" type="RichTextLabel" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer2/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+theme_override_font_sizes/normal_font_size = 4
+text = "25"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="PanelContainer3" type="PanelContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer3/MarginContainer"]
+layout_mode = 2
+
+[node name="StackingTexture" type="TextureRect" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("12_x7pur")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="ActionCountLabel" type="RichTextLabel" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer3/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+theme_override_font_sizes/normal_font_size = 4
+text = "25"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="PanelContainer4" type="PanelContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer4"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer4/MarginContainer"]
+layout_mode = 2
+
+[node name="StackingTexture" type="TextureRect" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("13_63s4p")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="WildCountLabel" type="RichTextLabel" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer4/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+theme_override_font_sizes/normal_font_size = 4
+text = "25"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="PanelContainer5" type="PanelContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer5"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer5/MarginContainer"]
+layout_mode = 2
+
+[node name="StackingTexture" type="TextureRect" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer5/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("14_uk5lf")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SpecialCountLabel" type="RichTextLabel" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer5/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+theme_override_font_sizes/normal_font_size = 4
+text = "25"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="PanelContainer6" type="PanelContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer6"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer6/MarginContainer"]
+layout_mode = 2
+
+[node name="StackingTexture" type="TextureRect" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer6/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("15_ks52o")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TotalCountLabel" type="RichTextLabel" parent="DeckPreview/PanelContainer/MarginContainer/VBoxContainer/PanelContainer6/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_0qbwb")
+theme_override_font_sizes/normal_font_size = 4
+text = "25"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/DeckTexture" to="." method="_on_deck_texture_mouse_entered"]
+[connection signal="mouse_exited" from="MarginContainer/VBoxContainer/VBoxContainer2/HBoxContainer/DeckTexture" to="." method="_on_deck_texture_mouse_exited"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ChooseButton" to="." method="_on_choose_button_pressed"]

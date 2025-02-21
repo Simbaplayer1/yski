@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b08rtywbsbu8o"]
+
+[ext_resource type="Script" uid="uid://d0n5b8ldx2c1v" path="res://components/card/card.gd" id="1_0nrb3"]
+[ext_resource type="Texture2D" uid="uid://3n0mnkoqm1uy" path="res://art/cards/card_1.png" id="1_xk85y"]
+[ext_resource type="Material" uid="uid://b5ait7381dpqp" path="res://materials/card/card.tres" id="2_in8cv"]
+[ext_resource type="Script" uid="uid://bcdqipc8q2ovi" path="res://components/card/card_texture.gd" id="3_in8cv"]
+
+[node name="Card" type="Button"]
+custom_minimum_size = Vector2(20, 32)
+offset_right = 20.0
+offset_bottom = 32.0
+script = ExtResource("1_0nrb3")
+
+[node name="CardTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_in8cv")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+texture = ExtResource("1_xk85y")
+stretch_mode = 2
+script = ExtResource("3_in8cv")
+
+[connection signal="mouse_entered" from="." to="CardTexture" method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="." to="CardTexture" method="_on_card_mouse_exited"]

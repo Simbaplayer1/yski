@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwmv43lmq7q26"]
+
+[ext_resource type="Script" uid="uid://bckvv8wy6v0fn" path="res://components/sidebar/event_feed/event_feed_item_card.gd" id="1_5hnje"]
+[ext_resource type="FontFile" uid="uid://bod7p1tgb4nl8" path="res://art/fonts/PixeloidSans-Bold.ttf" id="2_bbfdk"]
+
+[node name="EventFeedItemCard" type="PanelContainer"]
+offset_right = 9.0
+offset_bottom = 11.0
+script = ExtResource("1_5hnje")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_right = 1
+
+[node name="ValueLabel" type="RichTextLabel" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_bbfdk")
+theme_override_font_sizes/normal_font_size = 4
+text = "1"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1

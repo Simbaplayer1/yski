@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3n77vp20u2ei"]
+
+[ext_resource type="PackedScene" uid="uid://cyeoxleqt4rh3" path="res://components/sidebar/score_board/score_board.tscn" id="1_iqt6p"]
+[ext_resource type="Script" uid="uid://i5tavipqt2k2" path="res://components/sidebar/sidebar.gd" id="1_y4fbh"]
+[ext_resource type="PackedScene" uid="uid://blsccptvk0yry" path="res://components/sidebar/event_feed/event_feed.tscn" id="2_rx5q4"]
+
+[node name="Sidebar" type="VBoxContainer"]
+custom_minimum_size = Vector2(42, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 2.0
+grow_vertical = 2
+script = ExtResource("1_y4fbh")
+
+[node name="ScoreBoard" parent="." instance=ExtResource("1_iqt6p")]
+layout_mode = 2
+
+[node name="EventFeed" parent="." instance=ExtResource("2_rx5q4")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

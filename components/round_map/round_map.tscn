@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=3 uid="uid://eipj6hp2oqmc"]
+
+[ext_resource type="Script" uid="uid://dmw4i6g1qvvqi" path="res://components/round_map/round_map.gd" id="1_0df4t"]
+[ext_resource type="PackedScene" uid="uid://cht5yj3eudysq" path="res://components/background.tscn" id="1_lgc1c"]
+[ext_resource type="Theme" uid="uid://dvuhetf2ik7ji" path="res://themes/red.tres" id="2_lcvmu"]
+[ext_resource type="PackedScene" uid="uid://cyeoxleqt4rh3" path="res://components/sidebar/score_board/score_board.tscn" id="3_0df4t"]
+[ext_resource type="PackedScene" uid="uid://i16cxeln6alb" path="res://components/map_view/map_view.tscn" id="4_0df4t"]
+[ext_resource type="PackedScene" uid="uid://b5a621xh8x0lf" path="res://components/round_map/round_map_option.tscn" id="4_6hq5w"]
+[ext_resource type="Material" uid="uid://bryqx6imoyfue" path="res://materials/crt/crt.tres" id="6_6hq5w"]
+
+[sub_resource type="Gradient" id="Gradient_6hq5w"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0fvvu"]
+gradient = SubResource("Gradient_6hq5w")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="RoundMap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0df4t")
+
+[node name="Background" parent="." instance=ExtResource("1_lgc1c")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ScoreBoard" parent="MarginContainer/HBoxContainer" instance=ExtResource("3_0df4t")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Map"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MapView" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2" instance=ExtResource("4_0df4t")]
+layout_mode = 2
+expand_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Pick round"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="RoundOptionContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="RoundMapOption" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/VBoxContainer/RoundOptionContainer" instance=ExtResource("4_6hq5w")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_lcvmu")
+text = "Quit"
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="."]
+
+[node name="CrtEffect" type="ColorRect" parent="PostProcessLayer"]
+material = ExtResource("6_6hq5w")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="PostProcessLayer"]
+position = Vector2(192, 108)
+scale = Vector2(6, 3.375)
+color = Color(0.697712, 0.892575, 0.567636, 1)
+energy = 0.15
+texture = SubResource("GradientTexture2D_0fvvu")
+
+[connection signal="update_map_view" from="." to="MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/MapView" method="_on_round_map_update_map_view"]

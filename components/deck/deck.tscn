@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://g7br6c1a5fef"]
+
+[ext_resource type="Theme" uid="uid://c6efjnbxqter0" path="res://themes/empty.tres" id="1_wkp8r"]
+[ext_resource type="Script" uid="uid://dptubcr8tdcx6" path="res://components/deck/deck.gd" id="2_xnq4x"]
+[ext_resource type="Material" uid="uid://b5ait7381dpqp" path="res://materials/card/card.tres" id="3_x5b2p"]
+[ext_resource type="Texture2D" uid="uid://b8c1mwxyctq1n" path="res://art/cards/card_209.png" id="4_x5b2p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5b2p"]
+atlas = ExtResource("4_x5b2p")
+
+[node name="Deck" type="Button"]
+custom_minimum_size = Vector2(22, 47)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -16.0
+offset_right = 10.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wkp8r")
+script = ExtResource("2_xnq4x")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+
+[node name="CardCountText" type="RichTextLabel" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -3.5
+offset_right = 7.5
+offset_bottom = 3.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 5
+text = "108"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource("3_x5b2p")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_x5b2p")
+stretch_mode = 2

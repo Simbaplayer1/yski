@@ -1,0 +1,201 @@
+[gd_scene load_steps=18 format=3 uid="uid://c1mfijvpisf68"]
+
+[ext_resource type="Script" uid="uid://drbgj78vc3vpm" path="res://components/game/game.gd" id="1_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://cht5yj3eudysq" path="res://components/background.tscn" id="1_vtaks"]
+[ext_resource type="PackedScene" uid="uid://l67h7vvqgmhc" path="res://components/hand/enemy_hand/enemy_hand.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://d3n77vp20u2ei" path="res://components/sidebar/sidebar.tscn" id="2_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://citvbrqsmiufi" path="res://components/hand/user_hand/user_hand.tscn" id="2_yqjtg"]
+[ext_resource type="Shader" uid="uid://ccqsw7wielpo8" path="res://components/game/background.gdshader" id="3_ekgyr"]
+[ext_resource type="PackedScene" uid="uid://coexvxqc0t63s" path="res://components/discard_pile/discard_pile.tscn" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://g7br6c1a5fef" path="res://components/deck/deck.tscn" id="4_iywne"]
+[ext_resource type="PackedScene" uid="uid://dj8e34fililed" path="res://components/action_modal/action_modal.tscn" id="7_vtaks"]
+[ext_resource type="Theme" uid="uid://dvuhetf2ik7ji" path="res://themes/red.tres" id="8_jq2k4"]
+[ext_resource type="PackedScene" uid="uid://cx2kriu1ju6ll" path="res://components/color_pick_modal/color_pick_modal.tscn" id="8_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://dqaituobjik7n" path="res://components/pre_round_modal/pre_round_modal.tscn" id="9_dinhu"]
+[ext_resource type="Material" uid="uid://bryqx6imoyfue" path="res://materials/crt/crt.tres" id="11_rgfrd"]
+[ext_resource type="PackedScene" uid="uid://bqv6yfe0afymi" path="res://components/deck_view_modal/deck_view_modal.tscn" id="12_mpnjm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mpnjm"]
+shader = ExtResource("3_ekgyr")
+shader_parameter/NUM_RECTS = 15
+shader_parameter/SPEED = 0.8
+shader_parameter/GLOW_WIDTH = 0.015
+shader_parameter/MAX_SIZE = 0.4
+shader_parameter/SPAWN_INTERVAL = 3.0
+shader_parameter/COLOR1 = Vector4(0.2, 0.8, 1, 1)
+shader_parameter/COLOR2 = Vector4(1, 0.2, 0.8, 1)
+
+[sub_resource type="Gradient" id="Gradient_ekgyr"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ekgyr"]
+gradient = SubResource("Gradient_ekgyr")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kvpfn")
+
+[node name="Background" parent="." instance=ExtResource("1_vtaks")]
+layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_mpnjm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Sidebar" parent="MarginContainer/HBoxContainer" instance=ExtResource("2_u5sy4")]
+clip_contents = true
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EnemyHand" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_lnu2h")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DiscardPile" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer" instance=ExtResource("3_lbhrr")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Deck" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_iywne")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ViewDeckButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("8_jq2k4")
+theme_override_font_sizes/font_size = 3
+text = "View Deck"
+
+[node name="UserHand" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_yqjtg")]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="CardAnimationLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+
+[node name="ModalLayer" type="CanvasLayer" parent="."]
+
+[node name="AnimationModal" parent="ModalLayer" instance=ExtResource("7_vtaks")]
+visible = false
+offset_left = 46.0
+mouse_filter = 2
+
+[node name="ColorPickModal" parent="ModalLayer" instance=ExtResource("8_kvpfn")]
+visible = false
+offset_left = 46.0
+mouse_filter = 2
+
+[node name="PreRoundModal" parent="ModalLayer" instance=ExtResource("9_dinhu")]
+visible = false
+offset_left = 92.0
+mouse_filter = 2
+
+[node name="DeckViewModal" parent="ModalLayer" instance=ExtResource("12_mpnjm")]
+unique_name_in_owner = true
+visible = false
+
+[node name="PostProcessLayer" type="CanvasLayer" parent="."]
+
+[node name="CrtEffect" type="ColorRect" parent="PostProcessLayer"]
+material = ExtResource("11_rgfrd")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="PostProcessLayer"]
+position = Vector2(192, 108)
+scale = Vector2(6, 3.375)
+color = Color(0.697712, 0.892575, 0.567636, 1)
+energy = 0.15
+texture = SubResource("GradientTexture2D_ekgyr")
+
+[connection signal="add_event" from="." to="MarginContainer/HBoxContainer/Sidebar" method="_on_game_add_event"]
+[connection signal="add_to_discard_pile" from="." to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/DiscardPile" method="_on_game_add_to_discard_pile"]
+[connection signal="animate_enemy_cards" from="." to="MarginContainer/HBoxContainer/VBoxContainer/EnemyHand" method="_on_game_animate_enemy_cards"]
+[connection signal="animate_user_cards" from="." to="MarginContainer/HBoxContainer/VBoxContainer/UserHand" method="_on_game_animate_user_cards"]
+[connection signal="init_deck_modal_deck" from="." to="ModalLayer/DeckViewModal" method="_on_game_init_deck_modal_deck"]
+[connection signal="init_deck_modal_width" from="." to="ModalLayer/DeckViewModal" method="_on_game_init_deck_modal_width"]
+[connection signal="init_enemy_list" from="." to="MarginContainer/HBoxContainer/VBoxContainer/EnemyHand" method="_on_game_init_enemy_list"]
+[connection signal="play_animation" from="." to="ModalLayer/AnimationModal" method="_on_game_play_animation"]
+[connection signal="play_enemy_animation" from="." to="MarginContainer/HBoxContainer/VBoxContainer/EnemyHand" method="_on_game_play_enemy_animation"]
+[connection signal="reset_discard_pile" from="." to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/DiscardPile" method="_on_game_reset_discard_pile"]
+[connection signal="show_color_picker" from="." to="ModalLayer/ColorPickModal" method="_on_game_show_color_picker"]
+[connection signal="show_draw_alert" from="." to="MarginContainer/HBoxContainer/VBoxContainer/UserHand" method="_on_game_show_draw_alert"]
+[connection signal="update_deck" from="." to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Deck" method="_on_game_update_deck"]
+[connection signal="update_discard_color" from="." to="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/DiscardPile" method="_on_game_update_discard_color"]
+[connection signal="update_enemy_hand" from="." to="MarginContainer/HBoxContainer/VBoxContainer/EnemyHand" method="_on_game_update_enemy_hand"]
+[connection signal="update_enemy_list" from="." to="MarginContainer/HBoxContainer/VBoxContainer/EnemyHand" method="_on_game_update_enemy_list"]
+[connection signal="update_user_action" from="." to="MarginContainer/HBoxContainer/VBoxContainer/EnemyHand" method="_on_game_update_user_action"]
+[connection signal="update_user_action" from="." to="MarginContainer/HBoxContainer/VBoxContainer/UserHand" method="_on_game_update_user_action"]
+[connection signal="update_user_hand" from="." to="MarginContainer/HBoxContainer/VBoxContainer/UserHand" method="_on_game_update_user_hand"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Deck" to="." method="_on_deck_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/ViewDeckButton" to="ModalLayer/DeckViewModal" method="_on_view_deck_button_pressed"]
+[connection signal="play_cards" from="MarginContainer/HBoxContainer/VBoxContainer/UserHand" to="." method="_on_user_hand_play_cards"]
+[connection signal="is_finished" from="ModalLayer/AnimationModal" to="." method="_on_animation_modal_is_finished"]
+[connection signal="color_is_chosen" from="ModalLayer/ColorPickModal" to="." method="_on_color_pick_modal_color_is_chosen"]
+[connection signal="is_finished" from="ModalLayer/PreRoundModal" to="." method="_on_pre_game_modal_is_finished"]

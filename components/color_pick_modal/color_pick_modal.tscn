@@ -1,0 +1,111 @@
+[gd_scene load_steps=15 format=3 uid="uid://cx2kriu1ju6ll"]
+
+[ext_resource type="Texture2D" uid="uid://3slmyjwa5yrp" path="res://art/ui/color_pick_buttons/color_pick_button_1.png" id="1_k6erd"]
+[ext_resource type="Script" uid="uid://clqgdah7g41qn" path="res://components/color_pick_modal/color_pick_modal.gd" id="1_o41ku"]
+[ext_resource type="Texture2D" uid="uid://cx5b34p0lqour" path="res://art/ui/color_pick_buttons/color_pick_button_3.png" id="2_o41ku"]
+[ext_resource type="Material" uid="uid://bd0o2wl5tgk26" path="res://materials/dissolve/disolve.tres" id="2_yohmy"]
+[ext_resource type="Texture2D" uid="uid://bv1caf25p8s8i" path="res://art/ui/color_pick_buttons/color_pick_button_2.png" id="3_yohmy"]
+[ext_resource type="Texture2D" uid="uid://dcbnvdtetmd8i" path="res://art/ui/color_pick_buttons/color_pick_button_4.png" id="4_3db25"]
+[ext_resource type="Texture2D" uid="uid://dps8vi7dnu3qs" path="res://art/ui/color_pick_buttons/color_pick_button_6.png" id="5_rjfqn"]
+[ext_resource type="Texture2D" uid="uid://8adm1wgeimxe" path="res://art/ui/color_pick_buttons/color_pick_button_5.png" id="6_h64mi"]
+[ext_resource type="Texture2D" uid="uid://caonvilfchlq4" path="res://art/ui/color_pick_buttons/color_pick_button_7.png" id="7_mw07b"]
+[ext_resource type="Texture2D" uid="uid://csa5efijt45qc" path="res://art/ui/color_pick_buttons/color_pick_button_9.png" id="8_hvcjs"]
+[ext_resource type="Texture2D" uid="uid://cv3qte8c24t7t" path="res://art/ui/color_pick_buttons/color_pick_button_8.png" id="9_t04d8"]
+[ext_resource type="Texture2D" uid="uid://dque0kdd6e4is" path="res://art/ui/color_pick_buttons/color_pick_button_10.png" id="10_pe0w7"]
+[ext_resource type="Texture2D" uid="uid://chokf22hvbur1" path="res://art/ui/color_pick_buttons/color_pick_button_12.png" id="11_1ggvw"]
+[ext_resource type="Texture2D" uid="uid://dhqun4op86uah" path="res://art/ui/color_pick_buttons/color_pick_button_11.png" id="12_bpyn8"]
+
+[node name="ColorPickModal" type="Control"]
+material = ExtResource("2_yohmy")
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o41ku")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -49.0
+offset_right = 43.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/bold_font_size = 9
+bbcode_enabled = true
+text = "[b]Pick color"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 2
+
+[node name="RedButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 2
+texture_normal = ExtResource("1_k6erd")
+texture_pressed = ExtResource("2_o41ku")
+texture_hover = ExtResource("3_yohmy")
+
+[node name="YellowButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 2
+texture_normal = ExtResource("4_3db25")
+texture_pressed = ExtResource("5_rjfqn")
+texture_hover = ExtResource("6_h64mi")
+
+[node name="GreenButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 2
+texture_normal = ExtResource("7_mw07b")
+texture_pressed = ExtResource("8_hvcjs")
+texture_hover = ExtResource("9_t04d8")
+
+[node name="BlueButton" type="TextureButton" parent="PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+layout_mode = 2
+texture_normal = ExtResource("10_pe0w7")
+texture_pressed = ExtResource("11_1ggvw")
+texture_hover = ExtResource("12_bpyn8")
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/RedButton" to="." method="_on_red_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/YellowButton" to="." method="_on_yellow_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/GreenButton" to="." method="_on_green_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/GridContainer/BlueButton" to="." method="_on_blue_button_pressed"]

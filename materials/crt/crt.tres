@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bryqx6imoyfue"]
+
+[ext_resource type="Shader" uid="uid://ctcuy21xcdyn4" path="res://materials/crt/crt.gdshader" id="1_34tqu"]
+
+[resource]
+shader = ExtResource("1_34tqu")
+shader_parameter/resolution = Vector2(1280, 720)
+shader_parameter/scan_line_amount = 0.149
+shader_parameter/warp_amount = 0.177
+shader_parameter/noise_amount = 0.018
+shader_parameter/interference_amount = 0.087
+shader_parameter/grille_amount = 0.079
+shader_parameter/grille_size = 1.17
+shader_parameter/vignette_amount = 0.835
+shader_parameter/vignette_intensity = 0.33
+shader_parameter/aberation_amount = 0.436
+shader_parameter/roll_line_amount = 0.184
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -7.371
+shader_parameter/pixel_strength = -2.507

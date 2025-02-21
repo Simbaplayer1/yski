@@ -1,0 +1,65 @@
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://b5ait7381dpqp"]
+
+[ext_resource type="Shader" uid="uid://2anu8t8namkk" path="res://materials/card/card2.gdshader" id="1_j0lk5"]
+
+[sub_resource type="Gradient" id="Gradient_j0lk5"]
+offsets = PackedFloat32Array(0, 0.548387, 1)
+colors = PackedColorArray(0.424433, 0.424433, 0.424433, 1, 1, 1, 1, 1, 0.424433, 0.424433, 0.424433, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6r0fi"]
+gradient = SubResource("Gradient_j0lk5")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nvobs"]
+frequency = 0.0084
+domain_warp_enabled = true
+domain_warp_amplitude = 47.435
+domain_warp_frequency = -0.025
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a2606"]
+noise = SubResource("FastNoiseLite_nvobs")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6ot1b"]
+noise_type = 0
+frequency = 0.0091
+fractal_type = 3
+fractal_lacunarity = 1.885
+fractal_gain = 0.53
+fractal_weighted_strength = 1.0
+fractal_ping_pong_strength = 4.045
+domain_warp_enabled = true
+domain_warp_amplitude = 11.82
+domain_warp_frequency = 1.105
+domain_warp_fractal_lacunarity = 6.7
+domain_warp_fractal_gain = 2.19
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_830su"]
+as_normal_map = true
+noise = SubResource("FastNoiseLite_6ot1b")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_j0lk5")
+shader_parameter/mouse_position = Vector2(10, 10)
+shader_parameter/sprite_position = Vector2(0, 0)
+shader_parameter/shake_enabled = true
+shader_parameter/shake_intensity = 10.0
+shader_parameter/shake_speed = 1.149
+shader_parameter/offset = 0.0
+shader_parameter/fov = 60.776
+shader_parameter/cull_back = true
+shader_parameter/inset = 0.0
+shader_parameter/max_tilt = 3.0
+shader_parameter/tilt_amplitude = 42.095
+shader_parameter/max_distance = 107.4
+shader_parameter/foilcolor = Color(0, 0, 0, 1)
+shader_parameter/threshold = 1.985
+shader_parameter/period = 0.74
+shader_parameter/scroll = 7.635
+shader_parameter/sin_threshold = 4.905
+shader_parameter/foil_threshold = 0.57
+shader_parameter/normal_strength = 25.385
+shader_parameter/effect_alpha_mult = 0.228
+shader_parameter/direction = 0.664
+shader_parameter/gradient = SubResource("GradientTexture1D_6r0fi")
+shader_parameter/noise = SubResource("NoiseTexture2D_a2606")
+shader_parameter/normal_map = SubResource("NoiseTexture2D_830su")

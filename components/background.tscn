@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://cht5yj3eudysq"]
+
+[ext_resource type="Texture2D" uid="uid://bqxwwcsnwe555" path="res://art/ui/misc/background.png" id="1_nu086"]
+[ext_resource type="Shader" uid="uid://tupleq5f058l" path="res://components/space.gdshader" id="2_7lo6a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f8fow"]
+shader = ExtResource("2_7lo6a")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_nu086")
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_f8fow")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.07225, 1.00749)

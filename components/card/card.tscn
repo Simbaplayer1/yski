@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://b08rtywbsbu8o"]
+
+[ext_resource type="Script" uid="uid://d0n5b8ldx2c1v" path="res://components/card/card.gd" id="1_0nrb3"]
+[ext_resource type="Theme" uid="uid://c6efjnbxqter0" path="res://themes/empty.tres" id="1_f3yfe"]
+[ext_resource type="Material" uid="uid://b5ait7381dpqp" path="res://materials/card/card.tres" id="2_in8cv"]
+[ext_resource type="Script" uid="uid://bcdqipc8q2ovi" path="res://components/card/card_texture.gd" id="3_in8cv"]
+[ext_resource type="Texture2D" uid="uid://ddjbm3npq64ba" path="res://art/cards/card_1.png" id="4_paafk"]
+[ext_resource type="FontFile" uid="uid://bod7p1tgb4nl8" path="res://art/fonts/PixeloidSans-Bold.ttf" id="6_paafk"]
+
+[node name="Card" type="Button"]
+custom_minimum_size = Vector2(22, 35)
+offset_right = 20.0
+offset_bottom = 32.0
+theme = ExtResource("1_f3yfe")
+script = ExtResource("1_0nrb3")
+
+[node name="CardTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+material = ExtResource("2_in8cv")
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_right = 2.0
+offset_bottom = 35.0
+grow_horizontal = 2
+texture = ExtResource("4_paafk")
+stretch_mode = 2
+script = ExtResource("3_in8cv")
+
+[node name="Tooltip" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = -7.0
+offset_right = 10.0
+offset_bottom = -1.0
+grow_horizontal = 2
+
+[node name="TooltipPanel" type="PanelContainer" parent="Tooltip"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -12.0
+offset_right = 9.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Tooltip/TooltipPanel"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="TooltipLabel" type="RichTextLabel" parent="Tooltip/TooltipPanel/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("6_paafk")
+theme_override_font_sizes/normal_font_size = 5
+text = "reverse"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggle_shake" from="." to="CardTexture" method="_on_card_toggle_shake"]

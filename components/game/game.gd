@@ -197,57 +197,64 @@ enum Animations {
 var turn_draw_count := 0
 var turn_skip_count := 0
 
+func calc_cards(cards: Array):
+	var player = Round.get_current_player()
+	var turn_reverse_count := 0
+	var turn_wild_played := false
+	
+	for card in cards:
+		turn_reverse_count += card.reverse_count
+		turn_skip_count += card.skip_count
+		turn_draw_count += card.draw_count
+		turn_wild_played = card.is_wild
+		
+	if turn_reverse_count > 0:
+		for _i in turn_reverse_count:
+			Round.reverse_direction()
+			emit_signal("add_event", {player = Round.get_current_player(), action = "reversed" , cards = []})
+		if Round.player_count <= 2:
+			Round.advance_turn()
+		player = Round.get_current_player()
+		view_animation(Animations.REVERSE, player)
+		
+	if turn_skip_count > 0:
+		for _i in turn_skip_count:
+			Round.advance_turn()
+			player = Round.get_current_player()
+			view_animation(Animations.SKIP, player)
+			emit_signal("add_event", {player = Round.get_current_player(), action = "skipped" , cards = []})
+		turn_skip_count = 0
+	
+	if turn_draw_count > 0:
+		Round.advance_turn()
+		player = Round.get_current_player()
+		for card in player.hand:
+			if card.draw_count >= turn_draw_count:
+				if player.is_user:
+					return
+		await view_animation(Animations.DRAW, player)
+		var drawn_cards = []
+		for _i in turn_draw_count:
+			var drawn_card = pickup_card(player)
+			drawn_cards.append(drawn_card)
+			print(player.name, " Drew")
+		emit_signal("add_event", {player = player, action = "drew" , cards = drawn_cards})
+		turn_draw_count = 0
+	
+	if turn_wild_played:
+		view_animation(Animations.WILD, player)
+		
+
 func pre_turn(played_cards: Array) -> void:
 	var player = Round.get_current_player()
 	
 	if !played_cards.is_empty():
-		var turn_reverse_count := 0
-		var turn_wild_played := false
-		
-		for card in played_cards:
-			turn_reverse_count += card.reverse_count
-			turn_skip_count += card.skip_count
-			turn_draw_count += card.draw_count
-			turn_wild_played = card.is_wild
-			
-		if turn_reverse_count > 0:
-			for _i in turn_reverse_count:
-				Round.reverse_direction()
-				emit_signal("add_event", {player = Round.get_current_player(), action = "reversed" , cards = []})
-			if Round.player_count <= 2:
-				Round.advance_turn()
-			player = Round.get_current_player()
-			view_animation(Animations.REVERSE, player)
-			
-		if turn_skip_count > 0:
-			for _i in turn_skip_count:
-				Round.advance_turn()
-				player = Round.get_current_player()
-				view_animation(Animations.SKIP, player)
-				emit_signal("add_event", {player = Round.get_current_player(), action = "skipped" , cards = []})
-			turn_skip_count = 0
-		
-		if turn_draw_count > 0:
-			Round.advance_turn()
-			player = Round.get_current_player()
-			await view_animation(Animations.DRAW, player)
-			var drawn_cards = []
-			for _i in turn_draw_count:
-				var drawn_card = pickup_card(player)
-				drawn_cards.append(drawn_card)
-				print(player.name, " Drew")
-			emit_signal("add_event", {player = player, action = "drew" , cards = drawn_cards})
-			turn_draw_count = 0
-		
-		if turn_wild_played:
-			view_animation(Animations.WILD, player)
-		
+		calc_cards(played_cards)
 		Round.advance_turn()
 	elif Round.turn_count > 1:
 		Round.advance_turn()
 		
 	player = Round.get_current_player()
-	print("Next Player: ", player.name)
 	
 	start_turn(player)
 

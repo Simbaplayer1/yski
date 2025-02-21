@@ -288,8 +288,10 @@ func init_deck() -> Array:
 		deck.append(Round.create_card(-1, 18)) #Wild Draw 10
 		deck.append(Round.create_card(-1, 19)) #Wild Draw 4 Reverse
 		deck.append(Round.create_card(-1, 20)) #Wild Skip
-		deck.append(Round.create_card(-1, 21)) #Double Skip
-		deck.append(Round.create_card(-1, 22)) #Skip All 
+	for i in Round.wild_special_card_count:
+		for c in Round.color_count:
+			deck.append(Round.create_card(c, 21)) #Double Skip
+			deck.append(Round.create_card(c, 22)) #Skip All 
 		
 	Globals.reset_id()
 	return deck

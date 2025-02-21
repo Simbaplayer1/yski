@@ -115,13 +115,13 @@ toggle_mode = true
 button_group = ExtResource("3_3706l")
 text = "Hard"
 
-[node name="HardcoreButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="InsaneButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 theme = ExtResource("5_ifx5n")
 theme_override_font_sizes/font_size = 8
 toggle_mode = true
 button_group = ExtResource("3_3706l")
-text = "Hardcore"
+text = "Insane"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -269,5 +269,5 @@ mouse_filter = 2
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/EasyButton" to="." method="_on_easy_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MediumButton" to="." method="_on_medium_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HardButton" to="." method="_on_hard_button_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/HardcoreButton" to="." method="_on_hardcore_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/InsaneButton" to="." method="_on_hardcore_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

@@ -231,7 +231,7 @@ func calc_cards(cards: Array):
 		for card in player.hand:
 			if card.draw_count >= turn_draw_count:
 				if player.is_user:
-					return
+					pass
 		await view_animation(Animations.DRAW, player)
 		var drawn_cards = []
 		for _i in turn_draw_count:

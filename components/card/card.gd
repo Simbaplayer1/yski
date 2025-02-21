@@ -40,13 +40,7 @@ func _ready() -> void:
 	else:
 		tooltip_panel.theme = load("res://themes/%s.tres" % (Globals.get_color_str(card.color).to_lower()))
 	
-	var card_value_text := ""
-	if card.value > 11:
-		card_value_text = Globals.get_short_value_str(card.value)
-	else:
-		card_value_text = Globals.get_value_str(card.value)
-	
-	tooltip_label.text = card_value_text
+	tooltip_label.text = Globals.get_short_value_str(card.value) if card.value > 11 else Globals.get_value_str(card.value)
 	
 	emit_signal("toggle_shake", !is_static)
 
